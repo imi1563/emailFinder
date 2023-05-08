@@ -14,7 +14,7 @@ const UNDERSCORE_SIGN = '_';
 async function gmail(email) {
   console.log('gmail called', email);
   const browser = await puppeteer.launch({
-      headless: true,
+      headless: "new",
       args: [
           '--no-sandbox',
           '--disable-gpu',
