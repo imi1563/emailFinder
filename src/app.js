@@ -30,24 +30,29 @@ app.post('/findEmail', async (req, res) => {
     if(isglx.can_connect_smtp && isglx.is_deliverable){
       valid.push(`${i.email} is Glxu Valid`);
       break;
-    }else{
-      const isUserName = await emailVerifier.gmail(i.email);
-      if (isUserName == 'This email is already in use. Learn more'){
-        valid.push(`${i.email} is User Name Valid`);
-        break;
-      }else{
-        inValid.push(`${i.email} not valid`)
-      }
     }
   }
   if (valid.length > 0) {
     res.render('emailFind', { info: valid });
   } else {
-    res.render('emailFind', { info: "Valid Email not found" });
+    for (let i of result) {
+      console.log(i.email);
+      const isUserName = await emailVerifier.gmail(i.email);
+      console.log(isUserName);
+      if(isUserName=='This email is already in use. Learn more'){
+        valid.push(`${i.email} is UserName Valid`);
+        break;
+      }else{
+        valid.push(``);
+      }
+    }
+    
+  }
+  if(valid.length<=0){
+    res.render('emailFind', { info: 'Valid Email not fount'});
   }
 
 });
-
 
 
 const port = process.env.PORT || 3000;
