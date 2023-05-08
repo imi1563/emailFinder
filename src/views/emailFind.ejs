@@ -1,0 +1,91 @@
+<style>
+    body{
+    font-family: sans-serif;
+
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+}
+.container1{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.nav h1{
+    color:blueviolet;
+    margin-left: 0px;
+    font-size: 40px;
+    margin-right: auto;
+}
+.nav ul{
+    display: inline-flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.nav li{
+    padding-left: 15px;
+    padding-top: 15px;
+}
+.nav li a{
+    text-decoration: none;
+    color: blueviolet;
+}
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Finder</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+</head>
+<body>
+    <div class="container1">
+    <nav class="nav">
+        <h1>SENEW-TECH</h1>
+        <ul>
+            <li><a href="#">Bulk</a></li>
+            <li><a href="#">Single</a></li>
+            <li><a href="#">Email Finder</a></li>
+        </ul>
+    </nav>
+</div>
+
+      
+    <!-- <div class="text-center" style="margin-top: 10px;">
+        <a href="http://192.53.160.181">
+            <button >Do you want Bulk Email Verification?</button>
+          </a>
+     </div> -->
+<div class="container">
+    <h2 style="color: blueviolet;" class="text-center">
+   Email Finder
+    </h2>
+    <form action="/findEmail" method="post">
+        <div class="form-group" style="width: 300px; margin-left: 420px;">
+            <label for="email">Enter FullName</label>
+            <textarea name="fullname" style="-webkit-text-fill-color: blueviolet; border: 1px solid blueviolet;" class="form-control" maxlength="" required cols="1" rows="1"></textarea>
+        </div>
+        <div class="form-group" style="width: 300px; margin-left: 420px;">
+            <label for="email">Enter Domain</label>
+            <textarea name="domain" style="-webkit-text-fill-color: blueviolet; border: 1px solid blueviolet;" class="form-control" maxlength="" required cols="1" rows="1"></textarea>
+        </div>
+    
+        <div class="form-group" style="width: 300px; margin-left: 420px;">
+            <button id="button" style="border: 1px solid; color: blueviolet; width: 300px; height: 30px;">Find Now</button>
+        </div>
+    </form>
+    <%if(info){%><table class="table table-striped" style="width: 300px; margin-left: 420px;">
+        <tr>
+          <td></td> <td><h4 style="forced-color-adjust: grid-row; color:blueviolet;"><%=info%></h4></td>
+        </tr>
+
+    </table>
+   <%}%>
+</div>
+    
+</body>
+</html>
