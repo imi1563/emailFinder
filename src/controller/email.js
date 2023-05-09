@@ -12,13 +12,12 @@ const AT_SIGN = '@';
 const DOT_SIGN = '.';
 const SPACE_SIGN = ' ';
 const UNDERSCORE_SIGN = '_';
-const chromePath = process.env.CHROME_PATH;
 //gmail crawl validate
 async function gmail(email) {
   console.log('gmail called', email);
   const browser = await puppeteer.launch({
       headless: "new",
-      executablePath: chromePath, 
+    
       args: [
           '--no-sandbox',
           '--disable-gpu',
